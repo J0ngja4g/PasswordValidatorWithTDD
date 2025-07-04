@@ -16,12 +16,12 @@ public class PasswordValidatorTest{
         }
 
         //test case not pass: รหัสผ่านห้ามเกิน32ตัว
-        pass ="12345678pwojegpowjegp6464755165465644wfawaawfwawaaw";
+        pass ="12345678pwojegpowjegp6464755165465644wfawaawfwawaawjflkksjkdfjks;klfjskfjjsl;dfkj";
         PasswordStrength result2 = PasswordValidator.validate(pass);
         if(result2 == PasswordStrength.INVALID){
             System.out.println("Test Case 2 Passed: Short password is INVALID.");
         } else{
-            System.out.println("Test Case 2 FAILED: Expected WEAK but got"+result2);
+            System.out.println("Test Case 2 FAILED: Expected INVALID but got"+result2);
         }
 
         pass ="ASDFGHJKLNOPQQQ";
@@ -43,38 +43,30 @@ public class PasswordValidatorTest{
         }
 
         pass ="Pass316566559";
-        //test M1: รหัสผ่านเกิน8ตัว มีทั้งตัวอักษรและตัวเลข
+        //test S1:  มีทั้งตัวอักษรพิมพ์ใหญ่ พิมพ์เล็กและตัวเลข
         PasswordStrength result5 = PasswordValidator.validate(pass);
         if(result5 == PasswordStrength.MEDIUM){
             System.out.println("Test Case 5  Passed: Short password is MEDIUM.");
         } else{
-            System.out.println("Test Case 5 FAILED: Expected WEAK but got"+result5);
+            System.out.println("Test Case 5 FAILED: Expected MIDIUM but got"+ result5);
         }
 
-        pass ="Pass316566559";
-        //test S1: รหัสผ่านเกิน8ตัว มีทั้งตัวอักษรพิมพ์ใหญ่ พิมพ์เล็กและตัวเลข
+        pass="Aa1213@adladdwda";
+        //test S2:  มีทั้งตัวอักษรพิมพ์ใหญ่ พิมพ์เล็กและตัวเลข อักขระพิเศษ
         PasswordStrength result6 = PasswordValidator.validate(pass);
         if(result6 == PasswordStrength.STRONG){
-            System.out.println("Test Case 9  Passed: Short password is STRONG.");
+            System.out.println("Test Case 6  Passed: Short password is STRONG.");
         } else{
-            System.out.println("Test Case 9 FAILED: Expected WEAK but got"+result6);
-        }
-
-        //test S2: รหัสผ่านเกิน8ตัว มีทั้งตัวอักษรพิมพ์ใหญ่ พิมพ์เล็กและตัวเลข อักขระพิเศษ
-        PasswordStrength result7 = PasswordValidator.validate(pass);
-        if(result7 == PasswordStrength.STRONG){
-            System.out.println("Test Case 10 Passed: Short password is WEAK.");
-        } else{
-            System.out.println("Test Case 10 FAILED: Expected WEAK but got"+result7);
+            System.out.println("Test Case 6 FAILED: Expected STRONG but got"+  result6);
         }
 
         pass ="5456546744689";
         //test W3: รหัสผ่านตัวเลขทั้งหมด
-        PasswordStrength result8 = PasswordValidator.validate(pass);
-        if(result8 == PasswordStrength.WEAK){
-            System.out.println("Test Case 8  Passed: Short password is WEAK.");
+        PasswordStrength result7 = PasswordValidator.validate(pass);
+        if(result7 == PasswordStrength.WEAK){
+            System.out.println("Test Case 7  Passed: Short password is WEAK.");
         } else{
-            System.out.println("Test Case 8 FAILED: Expected WEAK but got"+result8);
+            System.out.println("Test Case 7 FAILED: Expected WEAK but got"+ result7);
         }
 
         System.out.println("--------------------------------");
